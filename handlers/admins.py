@@ -12,7 +12,7 @@ from helpers.filters import command
 from helpers.wrappers import errors, admins_only
 
 
-@Client.on_message(command(["pause", "p"]))
+@Client.on_message(command(["pause"]))
 @errors
 @admins_only
 async def pause(_, message: Message):
@@ -27,7 +27,7 @@ async def pause(_, message: Message):
         await message.reply_text("⏸ Paused.")
 
 
-@Client.on_message(command(["resume", "r"]))
+@Client.on_message(command(["resume"]))
 @errors
 @admins_only
 async def resume(_, message: Message):
@@ -42,7 +42,7 @@ async def resume(_, message: Message):
         await message.reply_text("▶️ Resumed.")
 
 
-@Client.on_message(command(["stop", "s"]))
+@Client.on_message(command(["end", "stopvc"]))
 @errors
 @admins_only
 async def stop(_, message: Message):
@@ -58,7 +58,7 @@ async def stop(_, message: Message):
         await message.reply_text("⏹ Stopped streaming.")
 
 
-@Client.on_message(command(["skip", "f"]))
+@Client.on_message(command(["skip"]))
 @errors
 @admins_only
 async def skip(_, message: Message):
