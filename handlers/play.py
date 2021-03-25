@@ -114,17 +114,17 @@ async def play(_, message: Message):
         #)
         #return
 
-    if chid.startswith("@"):
-        try:
-            chatdetails = await client.get_chat(chid)
-            channel_id = chatdetails.id
-        except:
-            await message.reply_text(
-                "<i>Send a message to your channel and try again</i>"
-            )
-            return
-    else:
-        channel_id = chid
+    #if chid.startswith("@"):
+        #try:
+            #chatdetails = await client.get_chat(chid)
+            #channel_id = chatdetails.id
+       # except:
+           # await message.reply_text(
+              #  "<i>Send a message to your channel and try again</i>"
+           # )
+            #return
+    #else:
+    channel_id = chid
     
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
 
