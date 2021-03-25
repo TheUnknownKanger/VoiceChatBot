@@ -106,13 +106,13 @@ async def play(_, message: Message):
         )
         return
 
-    try:
-        invitelink = await client.export_chat_invite_link(chid)
-    except:
-        await message.reply_text(
-            "<b>Add me as admin of yor channel first</b>",
-        )
-        return
+    #try:
+        #invitelink = await client.export_chat_invite_link(chid)
+    #except:
+        #await message.reply_text(
+            #"<b>Add me as admin of yor channel first</b>",
+        #)
+        #return
 
     if chid.startswith("@"):
         try:
