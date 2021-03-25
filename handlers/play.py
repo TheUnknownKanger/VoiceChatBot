@@ -73,6 +73,7 @@ async def play(_, message: Message):
         
 @Client.on_message(command("channelplay") & other_filters)
 @admins_only
+@errors
 async def play(_, message: Message):
     try:
         cmd, text = message.text.split(" ", 1)
