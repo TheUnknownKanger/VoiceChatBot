@@ -78,9 +78,7 @@ async def play(_, message: Message):
         cmd, text = message.text.split(" ", 1)
     except:
         await message.reply_text(
-            "<i>Please enter in the corrent manner!\n\n<code>/autofilter channelid</code>  or\n"
-            "<code>/autofilter @channelusername</code></i>"
-            "\n\nGet Channel id from @ShowJsonBot",
+            "Enter correct channel id or @username"
         )
         return
     try:
