@@ -93,7 +93,7 @@ async def play(_, message: Message):
         cmd, text = message.text.split(" ", 1)
     except:
         await message.reply_text(
-            "Enter in correct format. @Username or chai id
+            "Enter in correct format. @Username or chai id"
         )
         return
     try:
@@ -158,7 +158,7 @@ async def play(_, message: Message):
         cmd, text = message.text.split(" ", 1)
     except:
         await message.reply_text(
-            "Enter in correct format. @Username or chai id
+            "Enter in correct format. @Username or chai id"
         )
         return
     try:
@@ -223,7 +223,7 @@ async def play(_, message: Message):
         cmd, text = message.text.split(" ", 1)
     except:
         await message.reply_text(
-            "Enter in correct format. @Username or chai id
+            "Enter in correct format. @Username or chai id"
         )
         return
     try:
@@ -291,7 +291,7 @@ async def play(_, message: Message):
         cmd, text = message.text.split(" ", 1)
     except:
         await message.reply_text(
-            "Enter in correct format. @Username or chai id
+            "Enter in correct format. @Username or chai id"
         )
         return
     try:
