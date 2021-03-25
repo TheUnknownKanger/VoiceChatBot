@@ -7,7 +7,7 @@ from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessa
 from youtubesearchpython import VideosSearch
 
 
-@Client.on_inline_query()
+@tgbot.on(events.InlineQuery(pattern=r"youtube (.*)"))
 async def inline(client: Client, query: InlineQuery):
     answers = []
     search_query = query.query.lower().strip().rstrip()
