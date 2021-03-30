@@ -60,14 +60,47 @@ async def play(_, message: Message):
             return
 
         url = text[offset:offset + length]
+        lel = url
+        results = YoutubeSearch(lel,max_results=3).to_dict()
+        i = 0
+        texxt = ""
+        while i < 1:
+            texxt += f"Title - {results[i]['title']}\n"
+            texxt += f"Duration - {results[i]['duration']}\n"
+            texxt += f"Views - {results[i]['views']}\n"
+            texxt += f"Channel - {results[i]['channel']}\n"
+            texxt += f"https://youtube.com{results[i]['url_suffix']}\n\n"
+            i += 1
+        print(texxt) 
 
         file_path = await converter.convert(youtube.download(url))
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
-        position = queues.add(message.chat.id, file_path)
+        position = queues.add(message.chat.id, file_path,texxt)
         await res.edit_text(f"#️⃣ Queued at position {position}.")
     else:
-        await res.edit_text("▶️ Playing...\nPowered by @DaisySupport_Official")
+        img = Image.open("./downloads/1.jpg")
+        draw = ImageDraw.Draw(img)
+        image_widthz, image_heightz = img.size
+        pointsize = 500
+        fillcolor = "white"
+        shadowcolor = "black"
+
+        text = texxt
+
+        font = ImageFont.truetype("./downloads/VampireWars.ttf",130)
+        w,h = draw.textsize(text, font=font)
+        h += int(h*0.21)
+
+        image_width, image_height = img.size
+
+        draw.text(((image_widthz-w)/2, (image_heightz-h)/2), text, font=font, fill=(255, 255, 255))
+        x = (image_widthz-w)/2
+        y= (image_heightz-h)/2
+        draw.text((x, y), text, font=font, fill="white", stroke_width=6, stroke_fill="black")
+        pate = fname2
+        await client.send_photo(message.chat.id, pate,f"▶️Daisy Music Now Playing...\n{texxt}")
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path, 48000, callsmusic.pytgcalls.get_cache_peer())
+        os.remove(fname2)
 
     
